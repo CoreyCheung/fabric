@@ -12,7 +12,6 @@ import (
 	"compress/gzip"
 	"context"
 	"crypto/rand"
-	"crypto/tls"
 	"errors"
 	"fmt"
 	"io"
@@ -30,6 +29,8 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/studyzy/crypto/tls"
 
 	"golang.org/x/net/http/httpguts"
 	"golang.org/x/net/http2/hpack"

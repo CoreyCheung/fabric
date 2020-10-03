@@ -29,7 +29,6 @@ import (
 	"bufio"
 	"bytes"
 	"context"
-	"crypto/tls"
 	"errors"
 	"fmt"
 	"io"
@@ -46,6 +45,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/studyzy/crypto/tls"
 
 	"golang.org/x/net/http/httpguts"
 	"golang.org/x/net/http2/hpack"

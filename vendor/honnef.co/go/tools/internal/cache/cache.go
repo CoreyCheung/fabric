@@ -10,10 +10,10 @@ package cache
 
 import (
 	"bytes"
-	"crypto/sha256"
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/studyzy/crypto/sha256"
 	"io"
 	"io/ioutil"
 	"os"

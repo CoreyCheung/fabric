@@ -2,8 +2,8 @@ package ioutils // import "github.com/docker/docker/pkg/ioutils"
 
 import (
 	"context"
-	"crypto/sha256"
 	"encoding/hex"
+	"github.com/studyzy/crypto/sha256"
 	"io"
 )
 

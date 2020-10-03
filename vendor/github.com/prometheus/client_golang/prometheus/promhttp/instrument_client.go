@@ -14,10 +14,11 @@
 package promhttp
 
 import (
-	"crypto/tls"
 	"net/http"
 	"net/http/httptrace"
 	"time"
+
+	"github.com/studyzy/crypto/tls"
 
 	"github.com/prometheus/client_golang/prometheus"
 )

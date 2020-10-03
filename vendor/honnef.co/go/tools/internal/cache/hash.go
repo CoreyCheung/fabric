@@ -6,8 +6,8 @@ package cache
 
 import (
 	"bytes"
-	"crypto/sha256"
 	"fmt"
+	"github.com/studyzy/crypto/sha256"
 	"hash"
 	"io"
 	"os"

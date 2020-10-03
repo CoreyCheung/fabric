@@ -59,7 +59,7 @@ out when using this package.
    
     ```go
     import (
-        _ "crypto/sha256"
+        _ "github.com/studyzy/crypto/sha256"
    	    _ "crypto/sha512"
     )
     ```

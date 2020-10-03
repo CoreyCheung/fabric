@@ -20,11 +20,13 @@ package credentials
 
 import (
 	"context"
-	"crypto/tls"
-	"crypto/x509"
 	"fmt"
 	"io/ioutil"
 	"net"
+
+	"github.com/studyzy/crypto/x509"
+
+	"github.com/studyzy/crypto/tls"
 
 	"google.golang.org/grpc/credentials/internal"
 )

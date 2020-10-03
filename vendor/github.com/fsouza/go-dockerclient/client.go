@@ -11,8 +11,6 @@ import (
 	"bufio"
 	"bytes"
 	"context"
-	"crypto/tls"
-	"crypto/x509"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -30,6 +28,10 @@ import (
 	"strings"
 	"sync/atomic"
 	"time"
+
+	"github.com/studyzy/crypto/x509"
+
+	"github.com/studyzy/crypto/tls"
 
 	"github.com/docker/docker/opts"
 	"github.com/docker/docker/pkg/homedir"
