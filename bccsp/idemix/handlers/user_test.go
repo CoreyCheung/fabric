@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package handlers_test
 
 import (
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 
 	"github.com/hyperledger/fabric/bccsp"
 	"github.com/hyperledger/fabric/bccsp/idemix/handlers"

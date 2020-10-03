@@ -8,7 +8,7 @@ package msp
 
 import (
 	"bytes"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"crypto/x509/pkix"
 	"fmt"
 	"time"

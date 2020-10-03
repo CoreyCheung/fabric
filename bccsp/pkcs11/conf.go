@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package pkcs11
 
 import (
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 	"crypto/sha512"
 	"encoding/asn1"
 	"fmt"

@@ -8,7 +8,7 @@ package deliverclient
 
 import (
 	"context"
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 	"errors"
 	"math"
 	"sync"

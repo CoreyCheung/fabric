@@ -8,8 +8,8 @@ package tlsgen
 
 import (
 	"context"
-	"crypto/tls"
-	"crypto/x509"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
 	"encoding/base64"
 	"fmt"
 	"math/rand"

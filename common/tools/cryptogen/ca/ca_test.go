@@ -6,8 +6,8 @@ SPDX-License-Identifier: Apache-2.0
 package ca_test
 
 import (
-	"crypto/ecdsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/x509"
 	"net"
 	"os"
 	"path/filepath"

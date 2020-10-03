@@ -16,7 +16,7 @@ limitations under the License.
 package signer
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
 	"errors"

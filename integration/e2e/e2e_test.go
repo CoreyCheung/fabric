@@ -8,8 +8,8 @@ package e2e
 
 import (
 	"bytes"
-	"crypto/tls"
-	"crypto/x509"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
 	"encoding/json"
 	"fmt"
 	"io"

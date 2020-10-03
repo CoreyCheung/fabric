@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package kafka
 
 import (
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"testing"
 
 	"github.com/Shopify/sarama"

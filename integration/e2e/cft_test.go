@@ -8,11 +8,11 @@ package e2e
 
 import (
 	"bytes"
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
-	"crypto/sha256"
-	"crypto/x509"
+	"github.com/studyzy/crypto/sha256"
+	"github.com/studyzy/crypto/x509"
 	"encoding/hex"
 	"encoding/pem"
 	"fmt"

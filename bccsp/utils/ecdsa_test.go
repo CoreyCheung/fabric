@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package utils
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
 	"math/big"

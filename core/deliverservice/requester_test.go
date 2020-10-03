@@ -8,8 +8,8 @@ package deliverclient
 
 import (
 	"context"
-	"crypto/tls"
-	"crypto/x509"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
 	"io/ioutil"
 	"path/filepath"
 	"testing"

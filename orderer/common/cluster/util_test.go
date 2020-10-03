@@ -8,7 +8,7 @@ package cluster_test
 
 import (
 	"bytes"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/pem"
 	"errors"
 	"io/ioutil"

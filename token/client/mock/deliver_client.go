@@ -3,7 +3,7 @@ package mock
 
 import (
 	"context"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"sync"
 
 	"github.com/hyperledger/fabric/token/client"

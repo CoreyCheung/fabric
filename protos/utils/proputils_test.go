@@ -8,7 +8,7 @@ package utils_test
 
 import (
 	"bytes"
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 	"encoding/hex"
 	"fmt"
 	"os"

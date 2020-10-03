@@ -16,10 +16,10 @@ limitations under the License.
 package sw
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
-	"crypto/sha256"
-	"crypto/x509"
+	"github.com/studyzy/crypto/sha256"
+	"github.com/studyzy/crypto/x509"
 	"errors"
 	"fmt"
 

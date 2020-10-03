@@ -8,7 +8,7 @@ package crypto
 
 import (
 	"bytes"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/pem"
 	"errors"
 	"time"

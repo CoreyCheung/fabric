@@ -9,7 +9,7 @@ package comm
 import (
 	"bytes"
 	"context"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"encoding/hex"
 	"fmt"
 	"reflect"

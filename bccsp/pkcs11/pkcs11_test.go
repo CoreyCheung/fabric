@@ -8,7 +8,7 @@ SPDX-License-Identifier: Apache-2.0
 package pkcs11
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
 	"encoding/asn1"
 	"strconv"

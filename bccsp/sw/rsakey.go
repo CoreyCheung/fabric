@@ -17,8 +17,8 @@ package sw
 
 import (
 	"crypto/rsa"
-	"crypto/sha256"
-	"crypto/x509"
+	"github.com/studyzy/crypto/sha256"
+	"github.com/studyzy/crypto/x509"
 	"encoding/asn1"
 	"errors"
 	"fmt"

@@ -8,7 +8,7 @@ package gossip
 
 import (
 	"context"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"fmt"
 	"io"
 	"sync"

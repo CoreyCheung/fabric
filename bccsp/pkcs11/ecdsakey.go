@@ -16,8 +16,8 @@ limitations under the License.
 package pkcs11
 
 import (
-	"crypto/ecdsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/x509"
 	"errors"
 	"fmt"
 

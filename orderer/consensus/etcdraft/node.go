@@ -8,7 +8,7 @@ package etcdraft
 
 import (
 	"context"
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 	"sync"
 	"sync/atomic"
 	"time"

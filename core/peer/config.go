@@ -20,7 +20,7 @@ SPDX-License-Identifier: Apache-2.0
 package peer
 
 import (
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"fmt"
 	"io/ioutil"
 	"net"

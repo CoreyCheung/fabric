@@ -8,8 +8,8 @@ package cluster
 
 import (
 	"bytes"
-	"crypto/tls"
-	"crypto/x509"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
 	"encoding/hex"
 	"encoding/pem"
 	"math/rand"

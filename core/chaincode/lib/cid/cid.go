@@ -17,7 +17,7 @@ limitations under the License.
 package cid
 
 import (
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"crypto/x509/pkix"
 	"encoding/asn1"
 	"encoding/base64"

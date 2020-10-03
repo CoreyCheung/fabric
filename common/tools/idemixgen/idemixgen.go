@@ -12,8 +12,8 @@ package main
 // the Identity Mixer MSP
 
 import (
-	"crypto/ecdsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/x509"
 	"encoding/pem"
 	"fmt"
 	"io/ioutil"

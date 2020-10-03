@@ -16,7 +16,7 @@ limitations under the License.
 
 package cid
 
-import "crypto/x509"
+import "github.com/studyzy/crypto/x509"
 
 // ChaincodeStubInterface is used by deployable chaincode apps to get identity
 // of the  agent (or user) submitting the transaction.

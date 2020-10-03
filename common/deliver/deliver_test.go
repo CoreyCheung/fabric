@@ -11,7 +11,7 @@ import (
 	"io"
 	"time"
 
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/pem"
 
 	"github.com/golang/protobuf/proto"

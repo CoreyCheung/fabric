@@ -7,7 +7,7 @@ package sw
 
 import (
 	"crypto/elliptic"
-	"crypto/sha256"
+	"github.com/studyzy/crypto/sha256"
 	"crypto/sha512"
 	"reflect"
 

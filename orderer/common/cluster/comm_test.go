@@ -9,7 +9,7 @@ package cluster_test
 import (
 	"context"
 	"crypto/rand"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"fmt"
 	"net"
 	"strings"

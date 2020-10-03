@@ -7,7 +7,7 @@ package peer
 
 import (
 	"bytes"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"fmt"
 	"net"
 	"path/filepath"

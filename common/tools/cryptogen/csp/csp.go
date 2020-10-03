@@ -7,8 +7,8 @@ package csp
 
 import (
 	"crypto"
-	"crypto/ecdsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/x509"
 	"encoding/pem"
 	"io/ioutil"
 	"os"

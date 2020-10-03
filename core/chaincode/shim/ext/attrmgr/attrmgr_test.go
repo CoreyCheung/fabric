@@ -16,7 +16,7 @@ limitations under the License.
 package attrmgr_test
 
 import (
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/base64"
 	"testing"
 

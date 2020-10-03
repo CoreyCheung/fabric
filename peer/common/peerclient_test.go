@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package common_test
 
 import (
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"net"
 	"os"
 	"path/filepath"

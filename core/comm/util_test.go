@@ -8,9 +8,9 @@ package comm_test
 
 import (
 	"context"
-	"crypto/sha256"
-	"crypto/tls"
-	"crypto/x509"
+	"github.com/studyzy/crypto/sha256"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
 	"net"
 	"sync/atomic"
 	"testing"

@@ -9,9 +9,9 @@ package test
 import (
 	"bytes"
 	"context"
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/rand"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/hex"
 	"encoding/pem"
 	"fmt"

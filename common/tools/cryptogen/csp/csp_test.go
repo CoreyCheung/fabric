@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package csp_test
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"encoding/hex"
 	"errors"
 	"os"

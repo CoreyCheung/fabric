@@ -9,7 +9,7 @@ package chaincode
 
 import (
 	"context"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"

@@ -17,11 +17,11 @@ limitations under the License.
 package utils
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/rsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"encoding/asn1"
 	"encoding/pem"
 	"testing"

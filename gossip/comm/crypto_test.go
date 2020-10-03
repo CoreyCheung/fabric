@@ -8,7 +8,7 @@ package comm
 
 import (
 	"context"
-	"crypto/tls"
+	"github.com/studyzy/crypto/tls"
 	"fmt"
 	"net"
 	"sync"

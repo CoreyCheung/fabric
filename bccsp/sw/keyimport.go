@@ -17,9 +17,9 @@ limitations under the License.
 package sw
 
 import (
-	"crypto/ecdsa"
+	"github.com/studyzy/crypto/ecdsa"
 	"crypto/rsa"
-	"crypto/x509"
+	"github.com/studyzy/crypto/x509"
 	"errors"
 	"fmt"
 	"reflect"
