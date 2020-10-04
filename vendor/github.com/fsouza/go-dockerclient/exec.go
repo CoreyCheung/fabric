@@ -9,8 +9,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"net/url"
 	"strconv"
 )

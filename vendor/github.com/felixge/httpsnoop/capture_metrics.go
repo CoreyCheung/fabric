@@ -1,8 +1,8 @@
 package httpsnoop
 
 import (
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"sync"
 	"time"
 )

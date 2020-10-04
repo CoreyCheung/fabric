@@ -6,8 +6,8 @@ package properties
 
 import (
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
-	"net/http"
 	"os"
 	"strings"
 )

@@ -12,7 +12,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"sync"
 	"time"
 )

@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 	"regexp"
 	"strings"
 )

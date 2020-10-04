@@ -8,8 +8,8 @@ package integration_test
 
 import (
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"os/exec"
 	"regexp"
 	"syscall"

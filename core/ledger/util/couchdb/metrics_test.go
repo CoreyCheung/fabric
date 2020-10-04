@@ -7,7 +7,7 @@ package couchdb
 
 import (
 	"context"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"testing"
 

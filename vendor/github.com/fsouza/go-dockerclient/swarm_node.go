@@ -7,7 +7,7 @@ package docker
 import (
 	"context"
 	"encoding/json"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"strconv"
 

@@ -19,8 +19,8 @@ package rest
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
-	"net/http"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/common/tools/configtxlator/sanitycheck"

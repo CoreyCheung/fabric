@@ -8,8 +8,8 @@ package docker
 
 import (
 	"context"
+	"github.com/studyzy/net/http"
 	"net"
-	"net/http"
 	"time"
 
 	"github.com/Microsoft/go-winio"

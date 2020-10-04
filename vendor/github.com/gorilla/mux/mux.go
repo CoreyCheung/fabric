@@ -7,7 +7,7 @@ package mux
 import (
 	"errors"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"path"
 	"regexp"
 )

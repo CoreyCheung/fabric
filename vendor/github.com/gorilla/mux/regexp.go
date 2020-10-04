@@ -7,7 +7,7 @@ package mux
 import (
 	"bytes"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"regexp"
 	"strconv"

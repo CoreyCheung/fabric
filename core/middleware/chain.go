@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package middleware
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 )
 
 type Middleware func(http.Handler) http.Handler

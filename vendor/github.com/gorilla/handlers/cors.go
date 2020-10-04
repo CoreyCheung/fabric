@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 	"strconv"
 	"strings"
 )
@@ -142,7 +142,7 @@ func (ch *cors) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // Example:
 //
 //  import (
-//      "net/http"
+//      "github.com/studyzy/net/http"
 //
 //      "github.com/gorilla/handlers"
 //      "github.com/gorilla/mux"

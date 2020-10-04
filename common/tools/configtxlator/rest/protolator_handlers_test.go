@@ -19,10 +19,11 @@ package rest
 import (
 	"bytes"
 	"fmt"
-	"net/http"
-	"net/http/httptest"
 	"strings"
 	"testing"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 
 	"github.com/golang/protobuf/proto"
 	cb "github.com/hyperledger/fabric/protos/common"

@@ -8,9 +8,10 @@ package httpadmin_test
 
 import (
 	"errors"
-	"net/http"
-	"net/http/httptest"
 	"strings"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 
 	"github.com/hyperledger/fabric/common/flogging"
 	"github.com/hyperledger/fabric/common/flogging/httpadmin"

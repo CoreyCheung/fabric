@@ -8,9 +8,9 @@ package runner_test
 
 import (
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
 	"net"
-	"net/http"
 	"syscall"
 	"time"
 

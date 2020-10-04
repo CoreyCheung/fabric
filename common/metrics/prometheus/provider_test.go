@@ -9,8 +9,9 @@ package prometheus_test
 import (
 	"fmt"
 	"io/ioutil"
-	"net/http"
-	"net/http/httptest"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 
 	commonmetrics "github.com/hyperledger/fabric/common/metrics"
 	"github.com/hyperledger/fabric/common/metrics/prometheus"

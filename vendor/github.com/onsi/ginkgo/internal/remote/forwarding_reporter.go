@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"os"
 
 	"github.com/onsi/ginkgo/internal/writer"

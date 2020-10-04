@@ -9,9 +9,9 @@ package e2e
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
 	"net"
-	"net/http"
 	"os"
 	"syscall"
 

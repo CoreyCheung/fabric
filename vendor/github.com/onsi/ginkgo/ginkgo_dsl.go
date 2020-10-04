@@ -14,8 +14,8 @@ package ginkgo
 import (
 	"flag"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"os"
 	"strings"
 	"time"

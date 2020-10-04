@@ -8,8 +8,8 @@ package couchdb
 import (
 	"bytes"
 	"encoding/hex"
+	"github.com/studyzy/net/http"
 	"net"
-	"net/http"
 	"net/url"
 	"regexp"
 	"strconv"

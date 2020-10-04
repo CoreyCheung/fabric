@@ -15,9 +15,9 @@ package promhttp
 
 import (
 	"bufio"
+	"github.com/studyzy/net/http"
 	"io"
 	"net"
-	"net/http"
 )
 
 const (

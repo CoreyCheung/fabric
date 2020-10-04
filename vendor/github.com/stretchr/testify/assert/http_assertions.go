@@ -2,10 +2,11 @@ package assert
 
 import (
 	"fmt"
-	"net/http"
-	"net/http/httptest"
 	"net/url"
 	"strings"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 )
 
 // httpCode is a helper that returns HTTP code of the response. It returns -1 and

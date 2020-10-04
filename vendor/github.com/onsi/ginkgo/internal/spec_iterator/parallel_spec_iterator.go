@@ -3,7 +3,7 @@ package spec_iterator
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 
 	"github.com/onsi/ginkgo/internal/spec"
 )

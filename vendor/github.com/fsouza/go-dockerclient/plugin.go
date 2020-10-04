@@ -7,8 +7,8 @@ package docker
 import (
 	"context"
 	"encoding/json"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
-	"net/http"
 )
 
 // PluginPrivilege represents a privilege for a plugin.

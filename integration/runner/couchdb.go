@@ -9,9 +9,9 @@ package runner
 import (
 	"context"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
 	"net"
-	"net/http"
 	"os"
 	"strconv"
 	"sync"

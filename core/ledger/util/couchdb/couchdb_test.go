@@ -10,7 +10,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"os"
 	"strings"

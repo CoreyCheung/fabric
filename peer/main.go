@@ -7,9 +7,10 @@ SPDX-License-Identifier: Apache-2.0
 package main
 
 import (
-	_ "net/http/pprof"
 	"os"
 	"strings"
+
+	_ "github.com/studyzy/net/http/pprof"
 
 	"github.com/hyperledger/fabric/peer/chaincode"
 	"github.com/hyperledger/fabric/peer/channel"

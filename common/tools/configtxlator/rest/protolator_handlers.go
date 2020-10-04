@@ -19,8 +19,8 @@ package rest
 import (
 	"bytes"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
-	"net/http"
 	"reflect"
 
 	"github.com/golang/protobuf/proto"

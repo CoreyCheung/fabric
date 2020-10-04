@@ -17,8 +17,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net"
-	"net/http"
-	"net/http/httputil"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -28,6 +26,9 @@ import (
 	"strings"
 	"sync/atomic"
 	"time"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httputil"
 
 	"github.com/studyzy/crypto/x509"
 

@@ -109,13 +109,14 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"net/http"
-	"net/http/httptest"
-	"net/http/httputil"
 	"reflect"
 	"regexp"
 	"strings"
 	"sync"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
+	"github.com/studyzy/net/http/httputil"
 
 	. "github.com/onsi/gomega"
 )

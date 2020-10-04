@@ -9,8 +9,8 @@ package operations_test
 import (
 	"github.com/studyzy/crypto/tls"
 	"github.com/studyzy/crypto/x509"
+	"github.com/studyzy/net/http"
 	"io/ioutil"
-	"net/http"
 	"path/filepath"
 	"testing"
 

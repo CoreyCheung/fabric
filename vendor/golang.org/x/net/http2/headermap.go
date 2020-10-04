@@ -5,7 +5,7 @@
 package http2
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 	"strings"
 	"sync"
 )

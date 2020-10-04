@@ -8,7 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"strconv"
 

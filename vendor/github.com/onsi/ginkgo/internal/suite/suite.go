@@ -1,8 +1,8 @@
 package suite
 
 import (
+	"github.com/studyzy/net/http"
 	"math/rand"
-	"net/http"
 	"time"
 
 	"github.com/onsi/ginkgo/internal/spec_iterator"

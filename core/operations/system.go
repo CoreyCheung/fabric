@@ -9,8 +9,8 @@ package operations
 import (
 	"context"
 	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/net/http"
 	"net"
-	"net/http"
 	"os"
 	"strings"
 	"time"

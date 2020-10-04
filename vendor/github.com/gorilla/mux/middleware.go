@@ -1,7 +1,7 @@
 package mux
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 	"strings"
 )
 

@@ -298,7 +298,7 @@ package main
 
 import (
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -359,7 +359,7 @@ import (
     "context"
     "flag"
     "log"
-    "net/http"
+    "github.com/studyzy/net/http"
     "os"
     "os/signal"
     "time"
@@ -508,7 +508,7 @@ Here is an example of using `CORSMethodMiddleware` along with a custom `OPTIONS`
 package main
 
 import (
-	"net/http"
+	"github.com/studyzy/net/http"
 	"github.com/gorilla/mux"
 )
 
@@ -595,8 +595,8 @@ Our test code:
 package main
 
 import (
-    "net/http"
-    "net/http/httptest"
+    "github.com/studyzy/net/http"
+    "github.com/studyzy/net/http/httptest"
     "testing"
 )
 
@@ -694,7 +694,7 @@ Here's a complete, runnable example of a small `mux` based server:
 package main
 
 import (
-    "net/http"
+    "github.com/studyzy/net/http"
     "log"
     "github.com/gorilla/mux"
 )

@@ -9,7 +9,7 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 
 	"github.com/hyperledger/fabric/common/flogging"
 )

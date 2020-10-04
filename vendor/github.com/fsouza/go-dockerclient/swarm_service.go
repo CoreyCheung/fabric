@@ -7,8 +7,8 @@ package docker
 import (
 	"context"
 	"encoding/json"
+	"github.com/studyzy/net/http"
 	"io"
-	"net/http"
 	"time"
 
 	"github.com/docker/docker/api/types/swarm"

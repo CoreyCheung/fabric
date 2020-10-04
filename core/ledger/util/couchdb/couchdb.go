@@ -17,8 +17,6 @@ import (
 	"log"
 	"mime"
 	"mime/multipart"
-	"net/http"
-	"net/http/httputil"
 	"net/textproto"
 	"net/url"
 	"regexp"
@@ -26,6 +24,9 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httputil"
 
 	"github.com/hyperledger/fabric/common/flogging"
 	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"

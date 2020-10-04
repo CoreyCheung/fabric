@@ -3,12 +3,12 @@ package staticcheck // import "honnef.co/go/tools/staticcheck"
 
 import (
 	"fmt"
+	"github.com/studyzy/net/http"
 	"go/ast"
 	"go/constant"
 	"go/token"
 	"go/types"
 	htmltemplate "html/template"
-	"net/http"
 	"reflect"
 	"regexp"
 	"regexp/syntax"

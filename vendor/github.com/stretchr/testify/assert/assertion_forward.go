@@ -6,7 +6,7 @@
 package assert
 
 import (
-	http "net/http"
+	http "github.com/studyzy/net/http"
 	url "net/url"
 	time "time"
 )

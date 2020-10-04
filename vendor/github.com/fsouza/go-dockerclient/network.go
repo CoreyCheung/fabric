@@ -9,7 +9,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"net/http"
+	"github.com/studyzy/net/http"
 	"net/url"
 )
 

@@ -20,9 +20,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"mime/multipart"
-	"net/http"
-	"net/http/httptest"
 	"testing"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 
 	"github.com/hyperledger/fabric/common/tools/configtxlator/sanitycheck"
 	cb "github.com/hyperledger/fabric/protos/common"

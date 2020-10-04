@@ -5,9 +5,9 @@ package httpsnoop
 
 import (
 	"bufio"
+	"github.com/studyzy/net/http"
 	"io"
 	"net"
-	"net/http"
 )
 
 // HeaderFunc is part of the http.ResponseWriter interface.

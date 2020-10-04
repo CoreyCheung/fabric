@@ -8,13 +8,13 @@ package e2e
 
 import (
 	"bytes"
-	"github.com/studyzy/crypto/tls"
-	"github.com/studyzy/crypto/x509"
 	"encoding/json"
 	"fmt"
+	"github.com/studyzy/crypto/tls"
+	"github.com/studyzy/crypto/x509"
+	"github.com/studyzy/net/http"
 	"io"
 	"io/ioutil"
-	"net/http"
 	"os"
 	"path"
 	"path/filepath"

@@ -14,9 +14,10 @@
 package promhttp
 
 import (
-	"net/http"
-	"net/http/httptrace"
 	"time"
+
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptrace"
 
 	"github.com/studyzy/crypto/tls"
 

@@ -15,10 +15,10 @@ package expfmt
 
 import (
 	"fmt"
+	"github.com/studyzy/net/http"
 	"io"
 	"math"
 	"mime"
-	"net/http"
 
 	dto "github.com/prometheus/client_model/go"
 

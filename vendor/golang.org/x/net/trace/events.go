@@ -7,10 +7,10 @@ package trace
 import (
 	"bytes"
 	"fmt"
+	"github.com/studyzy/net/http"
 	"html/template"
 	"io"
 	"log"
-	"net/http"
 	"runtime"
 	"sort"
 	"strconv"

@@ -4,7 +4,7 @@
 
 package mux
 
-import "net/http"
+import "github.com/studyzy/net/http"
 
 // SetURLVars sets the URL variables for the given request, to be accessed via
 // mux.Vars for testing route behaviour. Arguments are not modified, a shallow

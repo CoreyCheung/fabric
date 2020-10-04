@@ -8,8 +8,8 @@ package docker
 
 import (
 	"context"
+	"github.com/studyzy/net/http"
 	"net"
-	"net/http"
 )
 
 // initializeNativeClient initializes the native Unix domain socket client on

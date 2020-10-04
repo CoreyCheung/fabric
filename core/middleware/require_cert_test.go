@@ -8,8 +8,8 @@ package middleware_test
 
 import (
 	"github.com/studyzy/crypto/x509"
-	"net/http"
-	"net/http/httptest"
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptest"
 
 	"github.com/hyperledger/fabric/core/middleware"
 	"github.com/hyperledger/fabric/core/middleware/fakes"
