@@ -285,6 +285,15 @@ github.com/studyzy/crypto/ecdsa
 github.com/studyzy/crypto/sha256
 github.com/studyzy/crypto/tls
 github.com/studyzy/crypto/x509
+# github.com/studyzy/net v0.0.0-20201009065424-632798fa16ef
+## explicit
+github.com/studyzy/net/http
+github.com/studyzy/net/http/httptest
+github.com/studyzy/net/http/httptrace
+github.com/studyzy/net/http/httptrace/internal/nettrace
+github.com/studyzy/net/http/httputil
+github.com/studyzy/net/http/internal
+github.com/studyzy/net/http/pprof
 # github.com/sykesm/zap-logfmt v0.0.1
 ## explicit
 github.com/sykesm/zap-logfmt
@@ -365,6 +374,7 @@ golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
 golang.org/x/net/http/httpguts
+golang.org/x/net/http/httpproxy
 golang.org/x/net/http2
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
