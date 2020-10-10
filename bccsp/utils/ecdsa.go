@@ -7,11 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 package utils
 
 import (
-	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
 	"encoding/asn1"
 	"errors"
 	"fmt"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/elliptic"
 	"math/big"
 )
 

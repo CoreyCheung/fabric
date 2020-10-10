@@ -17,15 +17,15 @@ limitations under the License.
 package utils
 
 import (
-	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/rsa"
-	"github.com/studyzy/crypto/x509"
 	"encoding/asn1"
 	"encoding/pem"
 	"errors"
 	"fmt"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/elliptic"
+	"github.com/studyzy/crypto/x509"
 )
 
 // struct to hold info required for PKCS#8
