@@ -279,7 +279,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/studyzy/crypto v0.0.0-20201010085853-26618c335850
+# github.com/studyzy/crypto v0.0.0-20201010093359-a3d95b03037e
 ## explicit
 github.com/studyzy/crypto/ecdsa
 github.com/studyzy/crypto/elliptic

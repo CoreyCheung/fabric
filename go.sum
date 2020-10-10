@@ -372,6 +372,8 @@ github.com/studyzy/crypto v0.0.0-20201010082407-03f4584e1898 h1:Wrys03n2Tx7bUbvY
 github.com/studyzy/crypto v0.0.0-20201010082407-03f4584e1898/go.mod h1:0cdg6vLIxkmOi52i8iObcnpZhOHWsPTkdO29RDk1fh8=
 github.com/studyzy/crypto v0.0.0-20201010085853-26618c335850 h1:a54v4PI7VPHRQrS/XOLi6e+cFZf8ntkcGn3gT7IfGTM=
 github.com/studyzy/crypto v0.0.0-20201010085853-26618c335850/go.mod h1:0cdg6vLIxkmOi52i8iObcnpZhOHWsPTkdO29RDk1fh8=
+github.com/studyzy/crypto v0.0.0-20201010093359-a3d95b03037e h1:y/W3J4Lm1+CnM8EBxJ1sYzL8FDMh0anNdCJOyxeTZKo=
+github.com/studyzy/crypto v0.0.0-20201010093359-a3d95b03037e/go.mod h1:0cdg6vLIxkmOi52i8iObcnpZhOHWsPTkdO29RDk1fh8=
 github.com/studyzy/net v0.0.0-20201009063641-4cfdd7fe649b h1:9H3jPzi57RhYWTfRWIqNSTPNfte1ar7b9pzpYuHKeKc=
 github.com/studyzy/net v0.0.0-20201009063641-4cfdd7fe649b/go.mod h1:eZ6PuAvUljLIg8usbTN+cBHWExfZwgUkUBRzj55dnrs=
 github.com/studyzy/net v0.0.0-20201009065424-632798fa16ef h1:fOYqMCtAzf5lwRd4uWZow+q3KqoPKnMxOWjZnqqDSsI=
