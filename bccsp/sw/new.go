@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package sw
 
 import (
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"github.com/studyzy/crypto/sha256"
 	"crypto/sha512"
 	"reflect"

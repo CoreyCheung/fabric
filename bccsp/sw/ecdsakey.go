@@ -17,7 +17,7 @@ package sw
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"github.com/studyzy/crypto/sha256"
 	"github.com/studyzy/crypto/x509"
 	"errors"

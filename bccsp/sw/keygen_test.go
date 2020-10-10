@@ -17,7 +17,7 @@ limitations under the License.
 package sw
 
 import (
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"errors"
 	"reflect"
 	"testing"

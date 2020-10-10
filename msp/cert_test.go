@@ -18,7 +18,7 @@ package msp
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"github.com/studyzy/crypto/x509"
 	"crypto/x509/pkix"

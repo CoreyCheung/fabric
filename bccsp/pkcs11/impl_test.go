@@ -10,7 +10,7 @@ package pkcs11
 import (
 	"bytes"
 	"crypto"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"crypto/rsa"
 	"github.com/studyzy/crypto/sha256"

@@ -8,7 +8,7 @@ package pkcs11
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"github.com/studyzy/crypto/sha256"
 	"encoding/asn1"
 	"encoding/hex"

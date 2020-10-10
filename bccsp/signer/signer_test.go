@@ -17,7 +17,7 @@ package signer
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"errors"
 	"testing"

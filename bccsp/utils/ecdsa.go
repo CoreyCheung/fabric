@@ -8,7 +8,7 @@ package utils
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"encoding/asn1"
 	"errors"
 	"fmt"

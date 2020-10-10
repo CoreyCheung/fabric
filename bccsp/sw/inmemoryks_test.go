@@ -8,7 +8,7 @@ package sw
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"fmt"
 	"testing"

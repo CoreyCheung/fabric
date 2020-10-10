@@ -9,7 +9,7 @@ package comm
 import (
 	"context"
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"github.com/studyzy/crypto/tls"
 	"github.com/studyzy/crypto/x509"

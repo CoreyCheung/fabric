@@ -8,7 +8,7 @@ package idemix
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/elliptic"
+	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
 	"github.com/studyzy/crypto/sha256"
 
