@@ -18,7 +18,7 @@ package utils
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"github.com/studyzy/crypto/elliptic"
+	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/rsa"
 	"github.com/studyzy/crypto/x509"
