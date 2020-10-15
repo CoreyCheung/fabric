@@ -55,7 +55,7 @@ require (
 	github.com/spf13/pflag v1.0.3
 	github.com/spf13/viper v0.0.0-20150908122457-1967d93db724
 	github.com/stretchr/testify v1.4.0
-	github.com/studyzy/crypto v0.0.0-20201015114730-ace969b464e1
+	github.com/studyzy/crypto v0.0.0-20201015154153-d31e1e6039c6
 	github.com/studyzy/net v0.0.0-20201009065424-632798fa16ef
 	github.com/sykesm/zap-logfmt v0.0.1
 	github.com/syndtr/goleveldb v0.0.0-20180815032940-ae2bd5eed72d
