@@ -17,13 +17,13 @@ limitations under the License.
 package utils
 
 import (
-	"github.com/studyzy/crypto/ecdsa"
-	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
-	"github.com/studyzy/crypto/rsa"
-	"github.com/studyzy/crypto/x509"
 	"encoding/asn1"
 	"encoding/pem"
+	"github.com/studyzy/crypto/ecdsa"
+	"github.com/studyzy/crypto/elliptic"
+	"github.com/studyzy/crypto/rsa"
+	"github.com/studyzy/crypto/x509"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -33,7 +33,8 @@ func TestOidFromNamedCurve(t *testing.T) {
 
 	var (
 		oidNamedCurveP224 = asn1.ObjectIdentifier{1, 3, 132, 0, 33}
-		oidNamedCurveP256 = asn1.ObjectIdentifier{1, 2, 840, 10045, 3, 1, 7}
+		//oidNamedCurveP256 = asn1.ObjectIdentifier{1, 2, 840, 10045, 3, 1, 7}
+		oidNamedCurveP256 = asn1.ObjectIdentifier{1, 2, 156, 10197, 1, 301} //oidNamedCurveP256SM2
 		oidNamedCurveP384 = asn1.ObjectIdentifier{1, 3, 132, 0, 34}
 		oidNamedCurveP521 = asn1.ObjectIdentifier{1, 3, 132, 0, 35}
 	)
