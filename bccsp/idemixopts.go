@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package bccsp
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 )
 
 // RevocationAlgorithm identifies the revocation algorithm

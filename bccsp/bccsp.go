@@ -17,7 +17,7 @@ limitations under the License.
 package bccsp
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"hash"
 )
 

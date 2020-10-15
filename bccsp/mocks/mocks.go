@@ -18,7 +18,7 @@ package mocks
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/studyzy/crypto"
 	"errors"
 	"hash"
 	"reflect"

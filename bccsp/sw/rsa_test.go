@@ -17,7 +17,7 @@ limitations under the License.
 package sw
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"crypto/rand"
 	"crypto/rsa"
 	"github.com/studyzy/crypto/sha256"

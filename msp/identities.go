@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package msp
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"crypto/rand"
 	"github.com/studyzy/crypto/x509"
 	"encoding/hex"

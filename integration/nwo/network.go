@@ -366,7 +366,7 @@ func (n *Network) ordererUserCryptoDir(o *Orderer, user, cryptoMaterialType stri
 func (n *Network) userCryptoDir(org *Organization, nodeOrganizationType, user, cryptoMaterialType string) string {
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		nodeOrganizationType,
 		org.Domain,
 		"users",
@@ -464,7 +464,7 @@ func (n *Network) peerLocalCryptoDir(p *Peer, cryptoType string) string {
 
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		"peerOrganizations",
 		org.Domain,
 		"peers",
@@ -499,7 +499,7 @@ func (n *Network) PeerCert(p *Peer) string {
 func (n *Network) PeerOrgMSPDir(org *Organization) string {
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		"peerOrganizations",
 		org.Domain,
 		"msp",
@@ -511,7 +511,7 @@ func (n *Network) PeerOrgMSPDir(org *Organization) string {
 func (n *Network) OrdererOrgMSPDir(o *Organization) string {
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		"ordererOrganizations",
 		o.Domain,
 		"msp",
@@ -526,7 +526,7 @@ func (n *Network) OrdererLocalCryptoDir(o *Orderer, cryptoType string) string {
 
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		"ordererOrganizations",
 		org.Domain,
 		"orderers",
@@ -563,7 +563,7 @@ func (n *Network) ProfileForChannel(channelName string) string {
 func (n *Network) CACertsBundlePath() string {
 	return filepath.Join(
 		n.RootDir,
-		"crypto",
+		"github.com/studyzy/crypto",
 		"ca-certs.pem",
 	)
 }

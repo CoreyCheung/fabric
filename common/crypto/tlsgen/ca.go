@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package tlsgen
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"github.com/studyzy/crypto/x509"
 )
 

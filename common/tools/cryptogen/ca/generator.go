@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0
 package ca
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"github.com/studyzy/crypto/ecdsa"
 	"crypto/rand"
 	"github.com/studyzy/crypto/x509"

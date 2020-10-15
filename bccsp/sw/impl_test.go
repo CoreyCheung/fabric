@@ -17,7 +17,7 @@ package sw
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/studyzy/crypto"
 	"github.com/studyzy/crypto/ecdsa"
 	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"

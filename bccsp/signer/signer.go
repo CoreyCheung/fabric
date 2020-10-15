@@ -16,7 +16,7 @@ limitations under the License.
 package signer
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"io"
 
 	"github.com/hyperledger/fabric/bccsp"
