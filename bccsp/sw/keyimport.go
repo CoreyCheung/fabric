@@ -18,7 +18,7 @@ package sw
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"github.com/studyzy/crypto/x509"
 	"errors"
 	"fmt"

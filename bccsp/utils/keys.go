@@ -18,7 +18,7 @@ package utils
 
 import (
 	"crypto/rand"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"encoding/asn1"
 	"encoding/pem"
 	"errors"

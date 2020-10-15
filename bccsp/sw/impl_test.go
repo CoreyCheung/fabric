@@ -21,7 +21,7 @@ import (
 	"github.com/studyzy/crypto/ecdsa"
 	"github.com/studyzy/crypto/elliptic"
 	"crypto/rand"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"github.com/studyzy/crypto/sha256"
 	"crypto/sha512"
 	"github.com/studyzy/crypto/x509"

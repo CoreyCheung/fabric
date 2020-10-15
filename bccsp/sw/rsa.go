@@ -18,7 +18,7 @@ package sw
 
 import (
 	"crypto/rand"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"errors"
 	"fmt"
 

@@ -18,7 +18,7 @@ package sw
 import (
 	"bytes"
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"encoding/hex"
 	"errors"
 	"fmt"

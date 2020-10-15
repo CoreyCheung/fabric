@@ -8,7 +8,7 @@ package pkcs11
 
 import (
 	"github.com/studyzy/crypto/ecdsa"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"github.com/studyzy/crypto/x509"
 	"encoding/hex"
 	"os"

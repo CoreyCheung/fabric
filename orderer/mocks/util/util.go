@@ -8,7 +8,7 @@ package util
 
 import (
 	"crypto/rand"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"github.com/studyzy/crypto/x509"
 	"crypto/x509/pkix"
 	"encoding/pem"

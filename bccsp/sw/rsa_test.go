@@ -19,7 +19,7 @@ package sw
 import (
 	"github.com/studyzy/crypto"
 	"crypto/rand"
-	"crypto/rsa"
+	"github.com/studyzy/crypto/rsa"
 	"github.com/studyzy/crypto/sha256"
 	"github.com/studyzy/crypto/x509"
 	"encoding/asn1"
