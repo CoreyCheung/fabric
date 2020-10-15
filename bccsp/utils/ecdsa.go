@@ -92,6 +92,7 @@ func IsLowS(k *ecdsa.PublicKey, s *big.Int) (bool, error) {
 }
 
 func ToLowS(k *ecdsa.PublicKey, s *big.Int) (*big.Int, error) {
+	return s, nil
 	lowS, err := IsLowS(k, s)
 	if err != nil {
 		return nil, err
