@@ -82,6 +82,7 @@ func SignatureToLowS(k *ecdsa.PublicKey, signature []byte) ([]byte, error) {
 
 // IsLow checks that s is a low-S
 func IsLowS(k *ecdsa.PublicKey, s *big.Int) (bool, error) {
+	return true,nil
 	halfOrder, ok := curveHalfOrders[k.Curve]
 	if !ok {
 		return false, fmt.Errorf("curve not recognized [%s]", k.Curve)
@@ -92,6 +93,7 @@ func IsLowS(k *ecdsa.PublicKey, s *big.Int) (bool, error) {
 }
 
 func ToLowS(k *ecdsa.PublicKey, s *big.Int) (*big.Int, error) {
+	return s, nil
 	lowS, err := IsLowS(k, s)
 	if err != nil {
 		return nil, err
