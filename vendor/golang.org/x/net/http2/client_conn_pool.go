@@ -7,10 +7,9 @@
 package http2
 
 import (
+	"github.com/studyzy/crypto/tls"
 	"github.com/studyzy/net/http"
 	"sync"
-
-	"github.com/studyzy/crypto/tls"
 )
 
 // ClientConnPool manages a pool of HTTP/2 client connections.

@@ -12,6 +12,7 @@ import (
 	"compress/gzip"
 	"context"
 	"crypto/rand"
+	"github.com/studyzy/crypto/tls"
 	"errors"
 	"fmt"
 	"io"
@@ -20,6 +21,8 @@ import (
 	"math"
 	mathrand "math/rand"
 	"net"
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httptrace"
 	"net/textproto"
 	"sort"
 	"strconv"
@@ -27,11 +30,6 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-
-	"github.com/studyzy/net/http"
-	"github.com/studyzy/net/http/httptrace"
-
-	"github.com/studyzy/crypto/tls"
 
 	"golang.org/x/net/http/httpguts"
 	"golang.org/x/net/http2/hpack"

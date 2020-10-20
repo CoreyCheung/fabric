@@ -8,12 +8,11 @@
 package docker
 
 import (
+	"github.com/studyzy/crypto/tls"
 	"errors"
 	"net"
 	"strings"
 	"time"
-
-	"github.com/studyzy/crypto/tls"
 )
 
 type tlsClientCon struct {

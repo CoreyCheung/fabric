@@ -5,9 +5,9 @@
 package handlers
 
 import (
-	"github.com/studyzy/net/http"
 	"io"
 	"net"
+	"github.com/studyzy/net/http"
 	"net/url"
 	"strconv"
 	"time"

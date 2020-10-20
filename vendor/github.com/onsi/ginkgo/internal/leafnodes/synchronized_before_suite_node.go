@@ -3,8 +3,8 @@ package leafnodes
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/studyzy/net/http"
 	"io/ioutil"
+	"github.com/studyzy/net/http"
 	"reflect"
 	"time"
 

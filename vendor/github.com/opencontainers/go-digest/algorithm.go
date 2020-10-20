@@ -15,7 +15,7 @@
 package digest
 
 import (
-	"crypto"
+	"github.com/studyzy/crypto"
 	"fmt"
 	"hash"
 	"io"

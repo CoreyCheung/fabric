@@ -19,7 +19,6 @@ import (
 	"net"
 	"net/textproto"
 	"net/url"
-	urlpkg "net/url"
 	"os"
 	"path"
 	"runtime"
@@ -425,16 +424,6 @@ type response struct {
 	wants10KeepAlive bool               // HTTP/1.0 w/ Connection "keep-alive"
 	wantsClose       bool               // HTTP request has Connection "close"
 
-	// canWriteContinue is a boolean value accessed as an atomic int32
-	// that says whether or not a 100 Continue header can be written
-	// to the connection.
-	// writeContinueMu must be held while writing the header.
-	// These two fields together synchronize the body reader
-	// (the expectContinueReader, which wants to write 100 Continue)
-	// against the main writer.
-	canWriteContinue atomicBool
-	writeContinueMu  sync.Mutex
-
 	w  *bufio.Writer // buffers output in chunks to chunkWriter
 	cw chunkWriter
 
@@ -525,7 +514,6 @@ type atomicBool int32
 
 func (b *atomicBool) isSet() bool { return atomic.LoadInt32((*int32)(b)) != 0 }
 func (b *atomicBool) setTrue()    { atomic.StoreInt32((*int32)(b), 1) }
-func (b *atomicBool) setFalse()   { atomic.StoreInt32((*int32)(b), 0) }
 
 // declareTrailer is called for each Trailer header when the
 // response header is written. It notes that a header will need to be
@@ -888,27 +876,21 @@ type expectContinueReader struct {
 	resp       *response
 	readCloser io.ReadCloser
 	closed     bool
-	sawEOF     atomicBool
+	sawEOF     bool
 }
 
 func (ecr *expectContinueReader) Read(p []byte) (n int, err error) {
 	if ecr.closed {
 		return 0, ErrBodyReadAfterClose
 	}
-	w := ecr.resp
-	if !w.wroteContinue && w.canWriteContinue.isSet() && !w.conn.hijacked() {
-		w.wroteContinue = true
-		w.writeContinueMu.Lock()
-		if w.canWriteContinue.isSet() {
-			w.conn.bufw.WriteString("HTTP/1.1 100 Continue\r\n\r\n")
-			w.conn.bufw.Flush()
-			w.canWriteContinue.setFalse()
-		}
-		w.writeContinueMu.Unlock()
+	if !ecr.resp.wroteContinue && !ecr.resp.conn.hijacked() {
+		ecr.resp.wroteContinue = true
+		ecr.resp.conn.bufw.WriteString("HTTP/1.1 100 Continue\r\n\r\n")
+		ecr.resp.conn.bufw.Flush()
 	}
 	n, err = ecr.readCloser.Read(p)
 	if err == io.EOF {
-		ecr.sawEOF.setTrue()
+		ecr.sawEOF = true
 	}
 	return
 }
@@ -1327,7 +1309,7 @@ func (cw *chunkWriter) writeHeader(p []byte) {
 	// because we don't know if the next bytes on the wire will be
 	// the body-following-the-timer or the subsequent request.
 	// See Issue 11549.
-	if ecr, ok := w.req.Body.(*expectContinueReader); ok && !ecr.sawEOF.isSet() {
+	if ecr, ok := w.req.Body.(*expectContinueReader); ok && !ecr.sawEOF {
 		w.closeAfterReply = true
 	}
 
@@ -1397,12 +1379,7 @@ func (cw *chunkWriter) writeHeader(p []byte) {
 	if bodyAllowedForStatus(code) {
 		// If no content type, apply sniffing algorithm to body.
 		_, haveType := header["Content-Type"]
-
-		// If the Content-Encoding was set and is non-blank,
-		// we shouldn't sniff the body. See Issue 31753.
-		ce := header.Get("Content-Encoding")
-		hasCE := len(ce) > 0
-		if !hasCE && !haveType && !hasTE && len(p) > 0 {
+		if !haveType && !hasTE && len(p) > 0 {
 			setHeader.contentType = DetectContentType(p)
 		}
 	} else {
@@ -1577,17 +1554,6 @@ func (w *response) write(lenData int, dataB []byte, dataS string) (n int, err er
 		}
 		return 0, ErrHijacked
 	}
-
-	if w.canWriteContinue.isSet() {
-		// Body reader wants to write 100 Continue but hasn't yet.
-		// Tell it not to. The store must be done while holding the lock
-		// because the lock makes sure that there is not an active write
-		// this very moment.
-		w.writeContinueMu.Lock()
-		w.canWriteContinue.setFalse()
-		w.writeContinueMu.Unlock()
-	}
-
 	if !w.wroteHeader {
 		w.WriteHeader(StatusOK)
 	}
@@ -1725,10 +1691,11 @@ func (c *conn) closeWriteAndWait() {
 	time.Sleep(rstAvoidanceDelay)
 }
 
-// validNextProto reports whether the proto is not a blacklisted ALPN
-// protocol name. Empty and built-in protocol types are blacklisted
-// and can't be overridden with alternate implementations.
-func validNextProto(proto string) bool {
+// validNPN reports whether the proto is not a blacklisted Next
+// Protocol Negotiation protocol. Empty and built-in protocol types
+// are blacklisted and can't be overridden with alternate
+// implementations.
+func validNPN(proto string) bool {
 	switch proto {
 	case "", "http/1.1", "http/1.0":
 		return false
@@ -1827,9 +1794,9 @@ func (c *conn) serve(ctx context.Context) {
 		}
 		c.tlsState = new(tls.ConnectionState)
 		*c.tlsState = tlsConn.ConnectionState()
-		if proto := c.tlsState.NegotiatedProtocol; validNextProto(proto) {
+		if proto := c.tlsState.NegotiatedProtocol; validNPN(proto) {
 			if fn := c.server.TLSNextProto[proto]; fn != nil {
-				h := initALPNRequest{ctx, tlsConn, serverHandler{c.server}}
+				h := initNPNRequest{ctx, tlsConn, serverHandler{c.server}}
 				fn(c.server, tlsConn, h)
 			}
 			return
@@ -1899,7 +1866,6 @@ func (c *conn) serve(ctx context.Context) {
 			if req.ProtoAtLeast(1, 1) && req.ContentLength != 0 {
 				// Wrap the Body reader with one that replies on the connection
 				req.Body = &expectContinueReader{readCloser: req.Body, resp: w}
-				w.canWriteContinue.setTrue()
 			}
 		} else if req.Header.get("Expect") != "" {
 			w.sendExpectationFailed()
@@ -2095,7 +2061,8 @@ func StripPrefix(prefix string, h Handler) Handler {
 // Setting the Content-Type header to any value, including nil,
 // disables that behavior.
 func Redirect(w ResponseWriter, r *Request, url string, code int) {
-	if u, err := urlpkg.Parse(url); err == nil {
+	// parseURL is just url.Parse (url is shadowed for godoc).
+	if u, err := parseURL(url); err == nil {
 		// If url was relative, make its path absolute by
 		// combining with request path.
 		// The client would probably do this for us,
@@ -2148,6 +2115,10 @@ func Redirect(w ResponseWriter, r *Request, url string, code int) {
 		fmt.Fprintln(w, body)
 	}
 }
+
+// parseURL is just url.Parse. It exists only so that url.Parse can be called
+// in places where url is shadowed for godoc. See https://golang.org/cl/49930.
+var parseURL = url.Parse
 
 var htmlReplacer = strings.NewReplacer(
 	"&", "&amp;",
@@ -2517,12 +2488,7 @@ func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error {
 // A Server defines parameters for running an HTTP server.
 // The zero value for Server is a valid configuration.
 type Server struct {
-	// Addr optionally specifies the TCP address for the server to listen on,
-	// in the form "host:port". If empty, ":http" (port 80) is used.
-	// The service names are defined in RFC 6335 and assigned by IANA.
-	// See net.Dial for details of the address format.
-	Addr string
-
+	Addr    string  // TCP address to listen on, ":http" if empty
 	Handler Handler // handler to invoke, http.DefaultServeMux if nil
 
 	// TLSConfig optionally provides a TLS configuration for use
@@ -2571,7 +2537,7 @@ type Server struct {
 	MaxHeaderBytes int
 
 	// TLSNextProto optionally specifies a function to take over
-	// ownership of the provided TLS connection when an ALPN
+	// ownership of the provided TLS connection when an NPN/ALPN
 	// protocol upgrade has occurred. The map key is the protocol
 	// name negotiated. The Handler argument should be used to
 	// handle HTTP requests and will initialize the Request's TLS
@@ -2721,7 +2687,7 @@ func (srv *Server) Shutdown(ctx context.Context) error {
 
 // RegisterOnShutdown registers a function to call on Shutdown.
 // This can be used to gracefully shutdown connections that have
-// undergone ALPN protocol upgrade or that have been hijacked.
+// undergone NPN/ALPN protocol upgrade or that have been hijacked.
 // This function should start protocol-specific graceful shutdown,
 // but should not wait for shutdown to complete.
 func (srv *Server) RegisterOnShutdown(f func()) {
@@ -2915,6 +2881,8 @@ func (srv *Server) Serve(l net.Listener) error {
 	}
 	defer srv.trackListener(&l, false)
 
+	var tempDelay time.Duration // how long to sleep on accept failure
+
 	baseCtx := context.Background()
 	if srv.BaseContext != nil {
 		baseCtx = srv.BaseContext(origListener)
@@ -2923,18 +2891,16 @@ func (srv *Server) Serve(l net.Listener) error {
 		}
 	}
 
-	var tempDelay time.Duration // how long to sleep on accept failure
-
 	ctx := context.WithValue(baseCtx, ServerContextKey, srv)
 	for {
-		rw, err := l.Accept()
-		if err != nil {
+		rw, e := l.Accept()
+		if e != nil {
 			select {
 			case <-srv.getDoneChan():
 				return ErrServerClosed
 			default:
 			}
-			if ne, ok := err.(net.Error); ok && ne.Temporary() {
+			if ne, ok := e.(net.Error); ok && ne.Temporary() {
 				if tempDelay == 0 {
 					tempDelay = 5 * time.Millisecond
 				} else {
@@ -2943,11 +2909,11 @@ func (srv *Server) Serve(l net.Listener) error {
 				if max := 1 * time.Second; tempDelay > max {
 					tempDelay = max
 				}
-				srv.logf("http: Accept error: %v; retrying in %v", err, tempDelay)
+				srv.logf("http: Accept error: %v; retrying in %v", e, tempDelay)
 				time.Sleep(tempDelay)
 				continue
 			}
-			return err
+			return e
 		}
 		connCtx := ctx
 		if cc := srv.ConnContext; cc != nil {
@@ -3190,7 +3156,7 @@ func (srv *Server) onceSetNextProtoDefaults_Serve() {
 // configured otherwise. (by setting srv.TLSNextProto non-nil)
 // It must only be called via srv.nextProtoOnce (use srv.setupHTTP2_*).
 func (srv *Server) onceSetNextProtoDefaults() {
-	if omitBundledHTTP2 || strings.Contains(os.Getenv("GODEBUG"), "http2server=0") {
+	if strings.Contains(os.Getenv("GODEBUG"), "http2server=0") {
 		return
 	}
 	// Enable HTTP/2 by default if the user hasn't otherwise
@@ -3212,8 +3178,8 @@ func (srv *Server) onceSetNextProtoDefaults() {
 // After such a timeout, writes by h to its ResponseWriter will return
 // ErrHandlerTimeout.
 //
-// TimeoutHandler supports the Pusher interface but does not support
-// the Hijacker or Flusher interfaces.
+// TimeoutHandler supports the Flusher and Pusher interfaces but does not
+// support the Hijacker interface.
 func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler {
 	return &timeoutHandler{
 		handler: h,
@@ -3253,9 +3219,8 @@ func (h *timeoutHandler) ServeHTTP(w ResponseWriter, r *Request) {
 	r = r.WithContext(ctx)
 	done := make(chan struct{})
 	tw := &timeoutWriter{
-		w:   w,
-		h:   make(Header),
-		req: r,
+		w: w,
+		h: make(Header),
 	}
 	panicChan := make(chan interface{}, 1)
 	go func() {
@@ -3295,7 +3260,6 @@ type timeoutWriter struct {
 	w    ResponseWriter
 	h    Header
 	wbuf bytes.Buffer
-	req  *Request
 
 	mu          sync.Mutex
 	timedOut    bool
@@ -3322,32 +3286,24 @@ func (tw *timeoutWriter) Write(p []byte) (int, error) {
 		return 0, ErrHandlerTimeout
 	}
 	if !tw.wroteHeader {
-		tw.writeHeaderLocked(StatusOK)
+		tw.writeHeader(StatusOK)
 	}
 	return tw.wbuf.Write(p)
 }
 
-func (tw *timeoutWriter) writeHeaderLocked(code int) {
-	checkWriteHeaderCode(code)
-
-	switch {
-	case tw.timedOut:
-		return
-	case tw.wroteHeader:
-		if tw.req != nil {
-			caller := relevantCaller()
-			logf(tw.req, "http: superfluous response.WriteHeader call from %s (%s:%d)", caller.Function, path.Base(caller.File), caller.Line)
-		}
-	default:
-		tw.wroteHeader = true
-		tw.code = code
-	}
-}
-
 func (tw *timeoutWriter) WriteHeader(code int) {
+	checkWriteHeaderCode(code)
 	tw.mu.Lock()
 	defer tw.mu.Unlock()
-	tw.writeHeaderLocked(code)
+	if tw.timedOut || tw.wroteHeader {
+		return
+	}
+	tw.writeHeader(code)
+}
+
+func (tw *timeoutWriter) writeHeader(code int) {
+	tw.wroteHeader = true
+	tw.code = code
 }
 
 // onceCloseListener wraps a net.Listener, protecting it from
@@ -3381,10 +3337,10 @@ func (globalOptionsHandler) ServeHTTP(w ResponseWriter, r *Request) {
 	}
 }
 
-// initALPNRequest is an HTTP handler that initializes certain
+// initNPNRequest is an HTTP handler that initializes certain
 // uninitialized fields in its *Request. Such partially-initialized
-// Requests come from ALPN protocol handlers.
-type initALPNRequest struct {
+// Requests come from NPN protocol handlers.
+type initNPNRequest struct {
 	ctx context.Context
 	c   *tls.Conn
 	h   serverHandler
@@ -3394,9 +3350,9 @@ type initALPNRequest struct {
 // recognized by x/net/http2 to pass down a context; the TLSNextProto
 // API predates context support so we shoehorn through the only
 // interface we have available.
-func (h initALPNRequest) BaseContext() context.Context { return h.ctx }
+func (h initNPNRequest) BaseContext() context.Context { return h.ctx }
 
-func (h initALPNRequest) ServeHTTP(rw ResponseWriter, req *Request) {
+func (h initNPNRequest) ServeHTTP(rw ResponseWriter, req *Request) {
 	if req.TLS == nil {
 		req.TLS = &tls.ConnectionState{}
 		*req.TLS = h.c.ConnectionState()

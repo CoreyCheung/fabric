@@ -1,6 +1,7 @@
 package sarama
 
 import (
+	"github.com/studyzy/crypto/tls"
 	"encoding/binary"
 	"fmt"
 	"io"
@@ -9,8 +10,6 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-
-	"github.com/studyzy/crypto/tls"
 
 	"github.com/rcrowley/go-metrics"
 )

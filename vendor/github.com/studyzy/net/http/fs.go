@@ -384,18 +384,15 @@ func checkIfUnmodifiedSince(r *Request, modtime time.Time) condResult {
 	if ius == "" || isZeroTime(modtime) {
 		return condNone
 	}
-	t, err := ParseTime(ius)
-	if err != nil {
-		return condNone
+	if t, err := ParseTime(ius); err == nil {
+		// The Date-Modified header truncates sub-second precision, so
+		// use mtime < t+1s instead of mtime <= t to check for unmodified.
+		if modtime.Before(t.Add(1 * time.Second)) {
+			return condTrue
+		}
+		return condFalse
 	}
-
-	// The Last-Modified header truncates sub-second precision so
-	// the modtime needs to be truncated too.
-	modtime = modtime.Truncate(time.Second)
-	if modtime.Before(t) || modtime.Equal(t) {
-		return condTrue
-	}
-	return condFalse
+	return condNone
 }
 
 func checkIfNoneMatch(w ResponseWriter, r *Request) condResult {
@@ -439,10 +436,9 @@ func checkIfModifiedSince(r *Request, modtime time.Time) condResult {
 	if err != nil {
 		return condNone
 	}
-	// The Last-Modified header truncates sub-second precision so
-	// the modtime needs to be truncated too.
-	modtime = modtime.Truncate(time.Second)
-	if modtime.Before(t) || modtime.Equal(t) {
+	// The Date-Modified header truncates sub-second precision, so
+	// use mtime < t+1s instead of mtime <= t to check for unmodified.
+	if modtime.Before(t.Add(1 * time.Second)) {
 		return condFalse
 	}
 	return condTrue
@@ -586,15 +582,17 @@ func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirec
 		}
 	}
 
+	// redirect if the directory name doesn't end in a slash
 	if d.IsDir() {
 		url := r.URL.Path
-		// redirect if the directory name doesn't end in a slash
-		if url == "" || url[len(url)-1] != '/' {
+		if url[len(url)-1] != '/' {
 			localRedirect(w, r, path.Base(url)+"/")
 			return
 		}
+	}
 
-		// use contents of index.html for directory, if present
+	// use contents of index.html for directory, if present
+	if d.IsDir() {
 		index := strings.TrimSuffix(name, "/") + indexPage
 		ff, err := fs.Open(index)
 		if err == nil {
@@ -614,7 +612,7 @@ func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirec
 			writeNotModified(w)
 			return
 		}
-		setLastModified(w, d.ModTime())
+		w.Header().Set("Last-Modified", d.ModTime().UTC().Format(TimeFormat))
 		dirList(w, r, f)
 		return
 	}

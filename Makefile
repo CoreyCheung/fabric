@@ -238,7 +238,7 @@ $(BUILD_DIR)/docker/bin/%: $(PROJECT_FILES)
 		-v $(abspath $(BUILD_DIR)/docker/gocache):/opt/gopath/cache \
 		-e GOCACHE=/opt/gopath/cache \
 		$(BASE_DOCKER_NS)/fabric-baseimage:$(BASE_DOCKER_TAG) \
-		go install -tags "$(GO_TAGS)" -ldflags "$(DOCKER_GO_LDFLAGS)" $(pkgmap.$(@F))
+		go install -mod=vendor -tags "$(GO_TAGS)" -ldflags "$(DOCKER_GO_LDFLAGS)" $(pkgmap.$(@F))
 	@touch $@
 
 $(BUILD_DIR)/bin:
@@ -263,7 +263,7 @@ $(BUILD_DIR)/docker/gotools: gotools.mk
 $(BUILD_DIR)/bin/%: $(PROJECT_FILES)
 	@mkdir -p $(@D)
 	@echo "$@"
-	$(CGO_FLAGS) GOBIN=$(abspath $(@D)) go install -tags "$(GO_TAGS)" -ldflags "$(GO_LDFLAGS)" $(pkgmap.$(@F))
+	$(CGO_FLAGS) GOBIN=$(abspath $(@D)) go install -mod=vendor -tags "$(GO_TAGS)" -ldflags "$(GO_LDFLAGS)" $(pkgmap.$(@F))
 	@echo "Binary available as $@"
 	@touch $@
 

@@ -7,8 +7,8 @@ package handlers
 import (
 	"compress/flate"
 	"compress/gzip"
-	"github.com/studyzy/net/http"
 	"io"
+	"github.com/studyzy/net/http"
 	"strings"
 
 	"github.com/felixge/httpsnoop"

@@ -11,12 +11,11 @@ import (
 	"io"
 	"math"
 	"net"
+	"github.com/studyzy/net/http"
+	"github.com/studyzy/net/http/httputil"
 	"sync"
 	"sync/atomic"
 	"time"
-
-	"github.com/studyzy/net/http"
-	"github.com/studyzy/net/http/httputil"
 )
 
 // APIEvents represents events coming from the Docker API

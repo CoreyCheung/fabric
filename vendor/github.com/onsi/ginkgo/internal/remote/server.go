@@ -9,9 +9,9 @@ package remote
 
 import (
 	"encoding/json"
-	"github.com/studyzy/net/http"
 	"io/ioutil"
 	"net"
+	"github.com/studyzy/net/http"
 	"sync"
 
 	"github.com/onsi/ginkgo/internal/spec_iterator"

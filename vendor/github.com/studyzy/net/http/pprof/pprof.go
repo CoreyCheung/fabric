@@ -10,7 +10,7 @@
 // The handled paths all begin with /debug/pprof/.
 //
 // To use pprof, link this package into your program:
-//	import _ "github.com/studyzy/net/http/pprof"
+//	import _ "net/http/pprof"
 //
 // If your application is not already running an http server, you
 // need to start one. Add "github.com/studyzy/net/http" and "log" to your imports and
@@ -19,9 +19,6 @@
 // 	go func() {
 // 		log.Println(http.ListenAndServe("localhost:6060", nil))
 // 	}()
-//
-// If you are not using DefaultServeMux, you will have to register handlers
-// with the mux you are using.
 //
 // Then use the pprof tool to look at the heap profile:
 //

@@ -8,10 +8,10 @@
 package lintutil // import "honnef.co/go/tools/lint/lintutil"
 
 import (
+	"github.com/studyzy/crypto/sha256"
 	"errors"
 	"flag"
 	"fmt"
-	"github.com/studyzy/crypto/sha256"
 	"go/build"
 	"go/token"
 	"io"

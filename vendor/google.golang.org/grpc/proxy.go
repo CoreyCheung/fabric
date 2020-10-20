@@ -26,10 +26,9 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"net/url"
-
 	"github.com/studyzy/net/http"
 	"github.com/studyzy/net/http/httputil"
+	"net/url"
 )
 
 const proxyAuthHeaderKey = "Proxy-Authorization"

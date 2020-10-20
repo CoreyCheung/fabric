@@ -34,8 +34,8 @@ package promhttp
 import (
 	"compress/gzip"
 	"fmt"
-	"github.com/studyzy/net/http"
 	"io"
+	"github.com/studyzy/net/http"
 	"strings"
 	"sync"
 	"time"
