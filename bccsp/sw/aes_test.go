@@ -17,7 +17,7 @@ package sw
 
 import (
 	"bytes"
-	"crypto/aes"
+	"github.com/studyzy/crypto/aes"
 	"crypto/rand"
 	"io"
 	"math/big"

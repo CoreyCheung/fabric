@@ -224,13 +224,15 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/studyzy/crypto v0.0.0-20201015154153-d31e1e6039c6
+# github.com/studyzy/crypto v0.0.0-20201025151115-27e67ee9d143
 github.com/studyzy/crypto
+github.com/studyzy/crypto/aes
 github.com/studyzy/crypto/ecdsa
 github.com/studyzy/crypto/elliptic
 github.com/studyzy/crypto/internal/randutil
 github.com/studyzy/crypto/internal/sm2
 github.com/studyzy/crypto/internal/sm3
+github.com/studyzy/crypto/internal/sm4
 github.com/studyzy/crypto/rsa
 github.com/studyzy/crypto/sha256
 github.com/studyzy/crypto/tls
