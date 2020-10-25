@@ -362,6 +362,8 @@ github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJy
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/studyzy/crypto v0.0.0-20201015154153-d31e1e6039c6 h1:cBbZUwsZZGMjc3hi6Z+XWH6fPDFTsiiDnBAehHpwnh4=
 github.com/studyzy/crypto v0.0.0-20201015154153-d31e1e6039c6/go.mod h1:0cdg6vLIxkmOi52i8iObcnpZhOHWsPTkdO29RDk1fh8=
+github.com/studyzy/crypto v0.0.0-20201025151115-27e67ee9d143 h1:UMXM5TkaeSjH2CVg9PG3a/vN55HqxOiIGozNG0gl/5Q=
+github.com/studyzy/crypto v0.0.0-20201025151115-27e67ee9d143/go.mod h1:0cdg6vLIxkmOi52i8iObcnpZhOHWsPTkdO29RDk1fh8=
 github.com/studyzy/net v0.0.0-20201020014349-89230b9445e0 h1:tFPeoww35q2gdH+1P4qtJ+SOhkFDyuoVGh/Fqsa0DKg=
 github.com/studyzy/net v0.0.0-20201020014349-89230b9445e0/go.mod h1:eZ6PuAvUljLIg8usbTN+cBHWExfZwgUkUBRzj55dnrs=
 github.com/sykesm/zap-logfmt v0.0.1 h1:jRQAGbt95KHhr59ivNUXejlvQeRK87GJ9Q8aH+Ug3qo=
